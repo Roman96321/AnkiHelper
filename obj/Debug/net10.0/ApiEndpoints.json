@@ -1,0 +1,462 @@
+[
+  {
+    "ContainingType": "AnkiHelper.Endpoints.Home.CheckAnkiConnectionEndpoint\u002B\u003C\u003Ec",
+    "Method": "\u003CMapCheckConnection\u003Eb__0_0",
+    "RelativePath": "api/anki/connection",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Anki"
+    ],
+    "EndpointName": "CheckAnkiConnection"
+  },
+  {
+    "ContainingType": "AnkiHelper.Endpoints.ImportPipeline.GetDeckNamesEndpoint\u002B\u003C\u003Ec",
+    "Method": "\u003CMapGetDeckNames\u003Eb__0_0",
+    "RelativePath": "api/anki/decks",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Anki"
+    ],
+    "EndpointName": "GetAnkiDecks"
+  },
+  {
+    "ContainingType": "AnkiHelper.Endpoints.ImportPipeline.AnkiApkgFileEndpoint\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAnkiApkgFile\u003Eb__1_0",
+    "RelativePath": "api/anki/packages",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Anki"
+    ],
+    "EndpointName": "UploadAnkiPackage"
+  },
+  {
+    "ContainingType": "AnkiHelper.Endpoints.Home.AnkiSourceEndpoint\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAnkiSource\u003Eb__0_0",
+    "RelativePath": "api/anki/source",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Anki"
+    ],
+    "EndpointName": "GetAnkiSource"
+  },
+  {
+    "ContainingType": "AnkiHelper.Endpoints.Auth.UserLoginEndpoint\u002B\u003C\u003Ec",
+    "Method": "\u003CMapUserLogin\u003Eb__0_0",
+    "RelativePath": "api/auth/login",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.UseCases.Auth.Login.LoginUserRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Auth"
+    ],
+    "EndpointName": "LoginUser"
+  },
+  {
+    "ContainingType": "AnkiHelper.Endpoints.Auth.UserLogout\u002B\u003C\u003Ec",
+    "Method": "\u003CMapUserLogout\u003Eb__0_0",
+    "RelativePath": "api/auth/logout",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Auth"
+    ],
+    "EndpointName": "LogoutUser"
+  },
+  {
+    "ContainingType": "AnkiHelper.Endpoints.Auth.UserMe\u002B\u003C\u003Ec",
+    "Method": "\u003CMapUserMe\u003Eb__0_0",
+    "RelativePath": "api/auth/me",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Auth"
+    ],
+    "EndpointName": "GetCurrentUser"
+  },
+  {
+    "ContainingType": "AnkiHelper.Endpoints.Auth.UserRefreshToken\u002B\u003C\u003Ec",
+    "Method": "\u003CMapUserRefreshToken\u003Eb__0_0",
+    "RelativePath": "api/auth/refresh-token",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Auth"
+    ],
+    "EndpointName": "RefreshAccessToken"
+  },
+  {
+    "ContainingType": "AnkiHelper.Endpoints.Auth.UserRegisterEndpoint\u002B\u003C\u003Ec",
+    "Method": "\u003CMapUserRegister\u003Eb__0_0",
+    "RelativePath": "api/auth/register",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.UseCases.Auth.Registration.RegisterUserRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Auth"
+    ],
+    "EndpointName": "RegisterUser"
+  },
+  {
+    "ContainingType": "AnkiHelper.Endpoints.Home.DeleteDecksEndpoint\u002B\u003C\u003Ec",
+    "Method": "\u003CMapDeleteDecks\u003Eb__0_0",
+    "RelativePath": "api/decks",
+    "HttpMethod": "DELETE",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "deckIds",
+        "Type": "System.Int64[]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Decks"
+    ],
+    "EndpointName": "DeleteDecks"
+  },
+  {
+    "ContainingType": "AnkiHelper.Endpoints.Home.GetDecksStatsEndpoint\u002B\u003C\u003Ec",
+    "Method": "\u003CMapGetDecksStats\u003Eb__0_0",
+    "RelativePath": "api/decks/statistics",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Decks"
+    ],
+    "EndpointName": "GetDeckStatistics"
+  },
+  {
+    "ContainingType": "AnkiHelper.Endpoints.Home.SynchronizationDecksEndpoint\u002B\u003C\u003Ec",
+    "Method": "\u003CMapPostSynchronizationDecks\u003Eb__0_0",
+    "RelativePath": "api/decks/synchronization",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Decks"
+    ],
+    "EndpointName": "SynchronizeDecks"
+  },
+  {
+    "ContainingType": "AnkiHelper.Endpoints.ImportPipeline.ImportDecksEndpoint\u002B\u003C\u003Ec",
+    "Method": "\u003CMapImportDecks\u003Eb__0_0",
+    "RelativePath": "api/imports",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "configuredDecks",
+        "Type": "System.Collections.Generic.List\u00601[[Application.UseCases.Decks.DeckImports.ImportConfigured.ConfiguredDeckImport, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Imports"
+    ],
+    "EndpointName": "ImportDecks"
+  },
+  {
+    "ContainingType": "AnkiHelper.Endpoints.ImportPipeline.PostDeckNamesEndpoint\u002B\u003C\u003Ec",
+    "Method": "\u003CMapPostDeckNames\u003Eb__0_0",
+    "RelativePath": "api/imports/preparation",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "deckNames",
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Imports"
+    ],
+    "EndpointName": "PrepareDeckImport"
+  },
+  {
+    "ContainingType": "AnkiHelper.Endpoints.Settings.GetSettingsStateEndpoint\u002B\u003C\u003Ec",
+    "Method": "\u003CMapGetSettingsState\u003Eb__0_0",
+    "RelativePath": "api/settings/decks",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Settings"
+    ],
+    "EndpointName": "GetDeckSettings"
+  },
+  {
+    "ContainingType": "AnkiHelper.Endpoints.Settings.UpdateSettingsEndpoint\u002B\u003C\u003Ec",
+    "Method": "\u003CMapUpdateSettings\u003Eb__0_0",
+    "RelativePath": "api/settings/decks",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "settings",
+        "Type": "Application.UseCases.Decks.Settings.DeckSettings",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Settings"
+    ],
+    "EndpointName": "UpdateDeckSettings"
+  },
+  {
+    "ContainingType": "AnkiHelper.Endpoints.Trainings.SentenceCompositionEndpoint\u002B\u003C\u003Ec",
+    "Method": "\u003CMapSentenceComposition\u003Eb__0_0",
+    "RelativePath": "api/training/sentence-composition/questions",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.UseCases.Training.SentenceComposition.SentenceCompositionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Training"
+    ],
+    "EndpointName": "GetSentenceCompositionQuestion"
+  },
+  {
+    "ContainingType": "AnkiHelper.Endpoints.Trainings.GetDailyTrainingStatistics\u002B\u003C\u003Ec",
+    "Method": "\u003CMapDailyTrainingStatistics\u003Eb__0_0",
+    "RelativePath": "api/training/statistics",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Training"
+    ],
+    "EndpointName": "GetTrainingStatistics"
+  },
+  {
+    "ContainingType": "AnkiHelper.Endpoints.Trainings.TranslationSentenceEndpoint\u002B\u003C\u003Ec",
+    "Method": "\u003CMapTranslationSentence\u003Eb__0_0",
+    "RelativePath": "api/training/translation-sentence/questions",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.UseCases.Training.TranslationSentence.TranslationSentenceRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Training"
+    ],
+    "EndpointName": "GetTranslationSentenceQuestion"
+  },
+  {
+    "ContainingType": "AnkiHelper.Endpoints.Trainings.WordOrderEndpoint\u002B\u003C\u003Ec",
+    "Method": "\u003CMapWordOrder\u003Eb__0_0",
+    "RelativePath": "api/training/word-order/questions",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.UseCases.Training.WordOrder.WordOrderRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Training"
+    ],
+    "EndpointName": "GetWordOrderQuestion"
+  }
+]
