@@ -1,0 +1,25 @@
+.canvas {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    width: 100%;
+    max-width: 904px;
+    min-width: 0;
+    min-height: 700px;
+    margin-inline: auto;
+    padding: 24px;
+    background-color: var(--color-white);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+@media (max-width: 640px) {
+    .canvas {
+        row-gap: 18px;
+        min-height: calc(100dvh - 112px);
+        padding: 16px;
+        border-radius: var(--border-radius);
+        box-shadow: none;
+    }
+}

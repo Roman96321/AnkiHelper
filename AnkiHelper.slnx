@@ -1,0 +1,13 @@
+<Solution>
+  <Project Path="AnkiHelper.Launcher/AnkiHelper.Launcher.csproj" />
+  <Project Path="AnkiHelper/AnkiHelper.csproj" />
+  <Project Path="ankihelperclient/ankihelperclient.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="Application.Tests/Application.Tests.csproj" />
+  <Project Path="Application/Application.csproj" Id="06dd402a-f8f9-4f6e-8fd3-15b1cac88688" />
+  <Project Path="Domain/Domain.csproj" Id="3630966d-69c9-499a-9603-f5502af2cab4" />
+  <Project Path="Infrastructure.Tests/Infrastructure.Tests.csproj" />
+  <Project Path="Infrastructure/Infrastructure.csproj" Id="18a9ece1-011e-4f02-b826-eedccf4f5af3" />
+</Solution>

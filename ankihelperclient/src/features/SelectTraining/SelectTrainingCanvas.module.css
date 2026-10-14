@@ -1,0 +1,80 @@
+.content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
+    padding-top: 96px;
+}
+
+.modeSelector {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    width: min(100%, 720px);
+}
+
+.modeButton {
+    min-height: 48px;
+    padding: 10px 12px;
+    color: var(--color-dark-2);
+    background-color: var(--color-white);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: color var(--transition-duration), background-color var(--transition-duration), border-color var(--transition-duration);
+}
+
+.modeButton:hover,
+.modeButton:focus {
+    border-color: var(--color-dark-2);
+    outline: none;
+}
+
+.selectedModeButton {
+    color: var(--color-gray-1);
+    background-color: var(--color-dark-2);
+    border-color: var(--color-dark-2);
+}
+
+.description {
+    width: min(100%, 640px);
+    min-height: 104px;
+    color: var(--color-gray-4);
+    text-align: center;
+}
+
+.description p {
+    margin: 0;
+}
+
+.description p + p {
+    margin-top: 8px;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+}
+
+@media (max-width: 640px) {
+    .content {
+        gap: 18px;
+        padding-top: 28px;
+    }
+
+    .modeSelector {
+        grid-template-columns: 1fr;
+    }
+
+    .modeButton {
+        min-height: 44px;
+    }
+
+    .description {
+        min-height: 0;
+        text-align: left;
+    }
+}

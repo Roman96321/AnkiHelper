@@ -1,0 +1,470 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.headerActions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hiddenFileInput {
+    display: none;
+}
+
+.titleGroup {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    min-width: 0;
+}
+
+.totalToday {
+    margin: 0;
+    color: var(--color-gray-4);
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.totalToday strong {
+    color: var(--color-dark-2);
+    font-weight: 700;
+}
+
+.iconButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    color: var(--color-dark-2);
+    background-color: var(--color-white);
+    border: var(--border);
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.iconButton:not(:disabled):hover,
+.iconButton:not(:disabled):focus {
+    border-color: var(--color-dark-2);
+    outline: none;
+}
+
+.iconButton:disabled {
+    color: var(--color-gray-4);
+    background-color: var(--color-gray-1);
+    border-color: var(--color-gray-2);
+    cursor: not-allowed;
+}
+
+.deleteModeButton {
+    color: #b42318;
+    border-color: #b42318;
+}
+
+.deleteModeButton:not(:disabled):hover,
+.deleteModeButton:not(:disabled):focus {
+    color: var(--color-white);
+    background-color: #b42318;
+    border-color: #b42318;
+}
+
+.syncIconLoading {
+    display: inline-flex;
+    animation: spin 0.8s linear infinite;
+}
+
+.buttonSpinner {
+    width: 18px;
+    height: 18px;
+    border: 3px solid var(--color-gray-2);
+    border-top-color: var(--color-dark-2);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+.statsIcon {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 16px;
+}
+
+.statsIcon span {
+    width: 4px;
+    background-color: currentColor;
+    border-radius: 2px 2px 0 0;
+}
+
+.statsIcon span:nth-child(1) {
+    height: 7px;
+}
+
+.statsIcon span:nth-child(2) {
+    height: 12px;
+}
+
+.statsIcon span:nth-child(3) {
+    height: 16px;
+}
+
+.error {
+    margin: 0;
+    color: #b42318;
+}
+
+.statusText {
+    margin: 0;
+    color: var(--color-gray-4);
+}
+
+.deckStats {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.emptyDecks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+    color: var(--color-gray-4);
+    text-align: center;
+}
+
+.emptyDecks p {
+    max-width: 420px;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.textLinkButton {
+    padding: 0;
+    color: var(--color-dark-2);
+    background: transparent;
+    border: 0;
+    font: inherit;
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.textLinkButton:hover,
+.textLinkButton:focus {
+    color: var(--color-black);
+    outline: none;
+}
+
+.textLinkButton:disabled {
+    color: var(--color-gray-4);
+    cursor: not-allowed;
+}
+
+.disabledArea {
+    pointer-events: none;
+    opacity: 0.72;
+}
+
+.deckStatsTable {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.deckStatsTable th,
+.deckStatsTable td {
+    padding: 10px 12px;
+    border-bottom: var(--border);
+    text-align: right;
+}
+
+.deckStatsTable th:first-child,
+.deckStatsTable td:first-child {
+    width: 34%;
+    text-align: left;
+}
+
+.deckNameCell {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.deckNameText {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.deckStatsTable th {
+    color: var(--color-gray-4);
+    font-weight: 600;
+}
+
+.todayValue {
+    color: var(--color-dark-2);
+    font-weight: 700;
+}
+
+.weakValue {
+    color: #b42318;
+}
+
+.newValue {
+    color: #1d4ed8;
+}
+
+.reviewValue {
+    color: #15803d;
+}
+
+.deckStatsTable tbody tr {
+    cursor: pointer;
+    transition: background-color var(--transition-duration);
+}
+
+.deckStatsTable tbody tr:hover,
+.deckStatsTable tbody tr:focus {
+    background-color: var(--color-gray-1);
+    outline: none;
+}
+
+.activeDeckRow,
+.deckStatsTable tbody tr.activeDeckRow:hover,
+.deckStatsTable tbody tr.activeDeckRow:focus {
+    background-color: var(--color-gray-1);
+}
+
+.deckActionMenu {
+    position: fixed;
+    z-index: 20;
+    display: flex;
+    min-width: 140px;
+    padding: 4px;
+    background-color: var(--color-white);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.deckActionButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    width: 100%;
+    min-height: 36px;
+    padding: 0 10px;
+    color: #b42318;
+    background-color: var(--color-white);
+    border: 0;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.deckActionButton:not(:disabled):hover,
+.deckActionButton:not(:disabled):focus {
+    background-color: #fff1f1;
+    outline: none;
+}
+
+.deckActionButton:disabled {
+    color: var(--color-gray-4);
+    background-color: var(--color-gray-1);
+    cursor: not-allowed;
+}
+
+.deckActionDeleteButton {
+    color: #b42318;
+}
+
+.deckActionDeleteButton:not(:disabled):hover,
+.deckActionDeleteButton:not(:disabled):focus {
+    color: #b42318;
+    background-color: #fff1f1;
+}
+
+.trashIcon {
+    position: relative;
+    display: inline-block;
+    flex: 0 0 auto;
+    width: 14px;
+    height: 15px;
+    border: 2px solid currentColor;
+    border-top: 0;
+    border-radius: 0 0 3px 3px;
+}
+
+.trashIcon::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -3px;
+    width: 17px;
+    height: 2px;
+    background-color: currentColor;
+    border-radius: 2px;
+}
+
+.trashIcon::after {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 3px;
+    width: 6px;
+    height: 3px;
+    border: 2px solid currentColor;
+    border-bottom: 0;
+    border-radius: 2px 2px 0 0;
+}
+
+.selectedDeckRow {
+    background-color: #fff1f1;
+}
+
+.deckStatsTable tbody tr.selectedDeckRow,
+.deckStatsTable tbody tr.selectedDeckRow:hover,
+.deckStatsTable tbody tr.selectedDeckRow:focus {
+    background-color: #fff1f1;
+}
+
+.deleteActions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+}
+
+.deleteButton {
+    height: var(--input-height);
+    padding: 0 16px;
+    color: var(--color-white);
+    background-color: #b42318;
+    border: 1px solid #b42318;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.deleteButton:not(:disabled):hover,
+.deleteButton:not(:disabled):focus {
+    color: #b42318;
+    background-color: var(--color-white);
+    outline: none;
+}
+
+.deleteButton:disabled {
+    background-color: var(--color-gray-3);
+    border-color: var(--color-gray-3);
+    cursor: not-allowed;
+}
+
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background-color: rgba(0, 0, 0, 0.32);
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: min(100%, 360px);
+    padding: 24px;
+    background-color: var(--color-white);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.spinner {
+    width: 36px;
+    height: 36px;
+    border: 4px solid var(--color-gray-2);
+    border-top-color: var(--color-dark-2);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+.modalTitle {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.modalText {
+    margin: 0;
+    color: var(--color-gray-4);
+    text-align: center;
+}
+
+@keyframes spin {
+    to {
+        rotate: 360deg;
+    }
+}
+
+@media (max-width: 640px) {
+    .header {
+        align-items: flex-start;
+        flex-direction: row;
+    }
+
+    .titleGroup {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .headerActions {
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 6px;
+        width: auto;
+        max-width: 260px;
+    }
+
+    .iconButton {
+        width: 34px;
+        height: 34px;
+        font-size: 17px;
+    }
+
+    .deckStatsTable {
+        min-width: 0;
+        table-layout: fixed;
+    }
+
+    .deckStatsTable thead {
+        display: none;
+    }
+
+    .deckStatsTable th,
+    .deckStatsTable td {
+        padding: 10px 6px;
+        font-size: 14px;
+    }
+
+    .deckStatsTable th:first-child,
+    .deckStatsTable td:first-child {
+        width: 42%;
+    }
+
+    .emptyDecks {
+        min-height: 180px;
+    }
+}

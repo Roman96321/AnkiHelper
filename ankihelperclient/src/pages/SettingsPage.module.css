@@ -1,0 +1,266 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    flex: 1;
+    gap: 20px;
+}
+
+.settingsTableWrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.deckSettings {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-top: 12px;
+}
+
+.accountSettings,
+.generalSettings {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 14px 0 18px;
+    border-bottom: var(--border);
+}
+
+.accountSettings {
+    padding-top: 0;
+}
+
+.sectionTitle {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.sectionDescription {
+    margin: 4px 0 0;
+    color: var(--color-gray-4);
+    font-size: 14px;
+}
+
+.accountControls {
+    display: flex;
+    align-items: end;
+    gap: 12px;
+}
+
+.accountEmailField {
+    display: grid;
+    gap: 6px;
+    min-width: 260px;
+    color: var(--color-gray-4);
+    font-size: 14px;
+}
+
+.emailText {
+    color: var(--color-dark-2);
+    font-size: 16px;
+    overflow-wrap: anywhere;
+}
+
+.logoutButton {
+    height: 36px;
+    padding-inline: 14px;
+}
+
+.languageField {
+    display: grid;
+    gap: 6px;
+    min-width: 220px;
+    color: var(--color-gray-4);
+    font-size: 14px;
+}
+
+.languageSelect {
+    height: 36px;
+    padding: 0 36px 0 10px;
+    border: var(--border);
+    border-radius: var(--border-radius);
+    background-color: var(--color-white);
+    color: var(--color-dark-2);
+    font: inherit;
+    cursor: pointer;
+}
+
+.languageSelect:focus {
+    border-color: var(--color-dark-2);
+    outline: none;
+}
+
+.settingsTable {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.settingsTable th,
+.settingsTable td {
+    padding: 10px 12px;
+    border-bottom: var(--border);
+}
+
+.settingsTable th {
+    color: var(--color-gray-4);
+    font-weight: 600;
+    text-align: left;
+}
+
+.settingsTable th:nth-child(2),
+.settingsTable td:nth-child(2),
+.settingsTable th:nth-child(3),
+.settingsTable td:nth-child(3) {
+    width: 150px;
+    text-align: center;
+}
+
+.nameInput,
+.countInput {
+    width: 100%;
+    height: 36px;
+    padding: 0 10px;
+    border: var(--border);
+    border-radius: var(--border-radius);
+    font: inherit;
+}
+
+.nameInput:focus,
+.countInput:focus {
+    border-color: var(--color-dark-2);
+    outline: none;
+}
+
+.countInput {
+    max-width: 88px;
+    text-align: center;
+}
+
+.toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: 44px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.toggle input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+.toggleTrack {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    background-color: var(--color-gray-3);
+    border-radius: 999px;
+    transition: background-color var(--transition-duration);
+}
+
+.toggleTrack::after {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    background-color: var(--color-white);
+    border-radius: 50%;
+    content: "";
+    transition: transform var(--transition-duration);
+}
+
+.toggle input:checked + .toggleTrack {
+    background-color: var(--color-dark-2);
+}
+
+.toggle input:checked + .toggleTrack::after {
+    transform: translateX(20px);
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+}
+
+.statusText {
+    margin: 0;
+    color: var(--color-gray-4);
+}
+
+.error {
+    margin: 0;
+    color: #b42318;
+}
+
+@media (max-width: 640px) {
+    .accountSettings,
+    .generalSettings {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .accountControls {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .accountEmailField,
+    .languageField {
+        min-width: 0;
+    }
+
+    .settingsTable {
+        min-width: 0;
+        table-layout: fixed;
+    }
+
+    .settingsTable th,
+    .settingsTable td {
+        padding: 9px 6px;
+        font-size: 14px;
+    }
+
+    .settingsTable th:first-child,
+    .settingsTable td:first-child {
+        width: 44%;
+    }
+
+    .settingsTable th:nth-child(2),
+    .settingsTable td:nth-child(2) {
+        width: 82px;
+    }
+
+    .settingsTable th:nth-child(3),
+    .settingsTable td:nth-child(3) {
+        width: 74px;
+    }
+
+    .nameInput,
+    .countInput {
+        height: 34px;
+        padding-inline: 8px;
+    }
+
+    .countInput {
+        max-width: 64px;
+    }
+
+    .actions {
+        justify-content: stretch;
+    }
+
+    .actions > * {
+        width: 100%;
+    }
+}

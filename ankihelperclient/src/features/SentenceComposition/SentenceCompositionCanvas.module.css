@@ -1,0 +1,217 @@
+.header {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+}
+
+.header > :first-child {
+    justify-self: start;
+}
+
+.header > :last-child {
+    justify-self: end;
+}
+
+.backButton {
+    height: var(--input-height);
+    padding: 0 14px;
+    color: var(--color-dark-2);
+    background-color: var(--color-white);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.backButton:hover,
+.backButton:focus {
+    border-color: var(--color-dark-2);
+    outline: none;
+}
+
+.content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 18px;
+    min-height: 0;
+    padding-top: 56px;
+}
+
+.remainingCounter {
+    margin: 0;
+    color: var(--color-dark-2);
+    text-align: center;
+}
+
+.composeArea {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.answerInput {
+    width: min(100%, 680px);
+    min-height: 128px;
+    padding: 14px 16px;
+    color: var(--color-dark-2);
+    background-color: var(--color-white);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    resize: vertical;
+    font: inherit;
+    line-height: 1.45;
+}
+
+.answerInput:focus {
+    border-color: var(--color-dark-2);
+    outline: none;
+}
+
+.answerInput:disabled {
+    color: var(--color-gray-4);
+    background-color: var(--color-gray-1);
+}
+
+.result {
+    min-height: 74px;
+    padding: 12px 14px;
+    border: var(--border);
+    border-radius: var(--border-radius);
+}
+
+.result p {
+    margin: 0;
+}
+
+.result p + p {
+    margin-top: 6px;
+}
+
+.correct {
+    color: #17633a;
+    background-color: #eef8f1;
+    border-color: #9bd2ad;
+}
+
+.incorrect {
+    color: #8a2d2d;
+    background-color: #fff1f1;
+    border-color: #e7a7a7;
+}
+
+.wordBank {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 120px;
+    margin-top: auto;
+    padding: 14px;
+    border-top: var(--border);
+}
+
+.wordChip {
+    min-height: 38px;
+    padding: 8px 12px;
+    color: var(--color-dark-2);
+    background-color: var(--color-white);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    user-select: text;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+}
+
+.error {
+    margin: 0;
+    color: #8a2d2d;
+    text-align: center;
+}
+
+.status {
+    margin: auto 0;
+    color: var(--color-gray-4);
+    text-align: center;
+}
+
+.completed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 320px;
+    color: var(--color-dark-2);
+    text-align: center;
+}
+
+.completed h2,
+.completed p {
+    margin: 0;
+}
+
+.completed p {
+    color: var(--color-gray-4);
+}
+
+@media (max-width: 640px) {
+    .header {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 10px;
+    }
+
+    .header > :first-child {
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: start;
+        text-align: left;
+        font-size: 22px;
+    }
+
+    .header > :last-child {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .remainingCounter {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-self: start;
+        text-align: left;
+    }
+
+    .content {
+        gap: 14px;
+        padding-top: 18px;
+    }
+
+    .answerInput {
+        min-height: 112px;
+    }
+
+    .wordBank {
+        gap: 8px;
+        min-height: 88px;
+        padding: 12px 0 0;
+    }
+
+    .wordChip {
+        min-height: 34px;
+        padding: 7px 10px;
+    }
+
+    .actions {
+        justify-content: stretch;
+    }
+
+    .actions > * {
+        width: 100%;
+    }
+}

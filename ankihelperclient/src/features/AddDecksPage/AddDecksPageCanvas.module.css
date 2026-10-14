@@ -1,0 +1,139 @@
+.deckList {
+    display: grid;
+    row-gap: 8px;
+    width: 100%;
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 100%;
+    flex: 1;
+}
+
+.actions {
+    padding-top: 12px;
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.uploadPanel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: min(100%, 520px);
+    margin: 80px auto 0;
+    text-align: center;
+}
+
+.fileUploadLabel {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
+    height: var(--input-height);
+    padding: 0 18px;
+    color: var(--color-white);
+    background-color: var(--color-dark-2);
+    border: 1px solid var(--color-dark-2);
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: color var(--transition-duration), background-color var(--transition-duration), border-color var(--transition-duration);
+}
+
+.fileUploadLabel:hover,
+.fileUploadLabel:focus-within {
+    color: var(--color-dark-2);
+    background-color: var(--color-white);
+    outline: none;
+}
+
+.fileUploadLabel:has(.fileInput:disabled) {
+    color: var(--color-white);
+    background-color: var(--color-gray-3);
+    border-color: var(--color-gray-3);
+    cursor: not-allowed;
+}
+
+.fileUploadTitle {
+    font-weight: 600;
+}
+
+.fileInput {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+.uploadText {
+    max-width: 420px;
+    margin: 0;
+    color: var(--color-gray-4);
+    line-height: 1.5;
+}
+
+.helpText {
+    margin: 0;
+    color: var(--color-gray-4);
+    line-height: 1.5;
+}
+
+.textLinkButton {
+    padding: 0;
+    color: var(--color-dark-2);
+    background: transparent;
+    border: 0;
+    font: inherit;
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.textLinkButton:hover,
+.textLinkButton:focus {
+    color: var(--color-black);
+    outline: none;
+}
+
+.statusText {
+    margin: 0;
+    color: var(--color-gray-4);
+}
+
+.error {
+    margin: 0;
+    color: #b42318;
+}
+
+@media (max-width: 640px) {
+    .content {
+        min-height: auto;
+    }
+
+    .uploadPanel {
+        gap: 14px;
+        margin-top: 32px;
+    }
+
+    .fileUploadLabel {
+        width: 100%;
+    }
+
+    .actions {
+        justify-content: stretch;
+    }
+
+    .actions > * {
+        width: 100%;
+    }
+}

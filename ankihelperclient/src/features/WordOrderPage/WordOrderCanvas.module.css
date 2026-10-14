@@ -1,0 +1,237 @@
+.header {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+}
+
+.header > :first-child {
+    justify-self: start;
+}
+
+.header > :last-child {
+    justify-self: end;
+}
+
+.backButton {
+    height: var(--input-height);
+    padding: 0 14px;
+    color: var(--color-dark-2);
+    background-color: var(--color-white);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.backButton:hover,
+.backButton:focus {
+    border-color: var(--color-dark-2);
+    outline: none;
+}
+
+.content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 18px;
+    min-height: 0;
+    padding-top: 56px;
+}
+
+.remainingCounter {
+    margin: 0;
+    color: var(--color-dark-2);
+    text-align: center;
+}
+
+.answerZone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    min-height: 132px;
+    padding: 18px;
+    background-color: var(--color-gray-1);
+    border: 1px dashed var(--color-gray-3);
+    border-radius: var(--border-radius);
+}
+
+.emptyAnswerZone {
+    color: var(--color-gray-4);
+}
+
+.placeholder {
+    color: var(--color-gray-4);
+}
+
+.translationSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 28px;
+}
+
+.translation {
+    margin: 0;
+    color: var(--color-dark-2);
+    font-size: 18px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.result {
+    padding: 12px 14px;
+    border: var(--border);
+    border-radius: var(--border-radius);
+}
+
+.result p {
+    margin: 0;
+}
+
+.result p + p {
+    margin-top: 6px;
+}
+
+.correct {
+    color: #17633a;
+    background-color: #eef8f1;
+    border-color: #9bd2ad;
+}
+
+.incorrect {
+    color: #8a2d2d;
+    background-color: #fff1f1;
+    border-color: #e7a7a7;
+}
+
+.wordBank {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 120px;
+    margin-top: auto;
+    padding: 14px;
+    border-top: var(--border);
+}
+
+.wordChip {
+    min-height: 38px;
+    padding: 8px 12px;
+    color: var(--color-dark-2);
+    background-color: var(--color-white);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    cursor: grab;
+    user-select: none;
+}
+
+.wordChip:hover,
+.wordChip:focus {
+    border-color: var(--color-dark-2);
+    outline: none;
+}
+
+.wordChip:active {
+    cursor: grabbing;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+}
+
+.error {
+    margin: 0;
+    color: #8a2d2d;
+    text-align: center;
+}
+
+.status {
+    margin: auto 0;
+    color: var(--color-gray-4);
+    text-align: center;
+}
+
+.completed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 320px;
+    color: var(--color-dark-2);
+    text-align: center;
+}
+
+.completed h2,
+.completed p {
+    margin: 0;
+}
+
+.completed p {
+    color: var(--color-gray-4);
+}
+
+@media (max-width: 640px) {
+    .header {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 10px;
+    }
+
+    .header > :first-child {
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: start;
+    }
+
+    .header > :last-child {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .remainingCounter {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-self: start;
+        text-align: left;
+    }
+
+    .content {
+        gap: 14px;
+        padding-top: 18px;
+    }
+
+    .answerZone {
+        min-height: 104px;
+        padding: 12px;
+    }
+
+    .wordBank {
+        gap: 8px;
+        min-height: 96px;
+        margin-top: 0;
+        padding: 12px 0 0;
+    }
+
+    .wordChip {
+        min-height: 34px;
+        padding: 7px 10px;
+        cursor: pointer;
+        touch-action: manipulation;
+    }
+
+    .actions {
+        justify-content: stretch;
+    }
+
+    .actions > * {
+        width: 100%;
+    }
+}

@@ -1,0 +1,198 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    gap: 22px;
+}
+
+.yearControls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.yearTitle {
+    min-width: 90px;
+    margin: 0;
+    font-size: 28px;
+    line-height: 1;
+    text-align: center;
+}
+
+.yearButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    color: var(--color-dark-2);
+    background-color: transparent;
+    border: 0;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.yearButton:hover,
+.yearButton:focus {
+    color: var(--color-black);
+    outline: none;
+}
+
+.yearButton:disabled {
+    color: var(--color-gray-3);
+    cursor: not-allowed;
+}
+
+.yearButton:disabled:hover,
+.yearButton:disabled:focus {
+    color: var(--color-gray-3);
+}
+
+.calendarWrap {
+    width: 100%;
+    overflow-x: auto;
+    padding: 8px 0 4px;
+}
+
+.calendarGrid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 12px;
+    grid-template-rows: repeat(7, 12px);
+    gap: 4px;
+    width: max-content;
+    min-width: 100%;
+}
+
+.summaryGrid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.summaryItem {
+    display: grid;
+    gap: 8px;
+    min-height: 84px;
+    padding: 14px;
+    background-color: var(--color-gray-1);
+    border: var(--border);
+    border-radius: var(--border-radius);
+}
+
+.summaryItem span {
+    color: var(--color-gray-4);
+    font-size: 14px;
+    line-height: 1.25;
+}
+
+.summaryItem strong {
+    align-self: end;
+    color: var(--color-dark-2);
+    font-size: 20px;
+    line-height: 1.15;
+    word-break: break-word;
+}
+
+.dayCell {
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-gray-1);
+    border: 1px solid var(--color-gray-2);
+    border-radius: 3px;
+}
+
+.dayCell:hover {
+    border-color: var(--color-dark-2);
+}
+
+.dayCell:focus {
+    border-color: var(--color-dark-2);
+    outline: none;
+}
+
+.dayTooltip {
+    position: fixed;
+    z-index: 30;
+    display: grid;
+    gap: 4px;
+    min-width: 150px;
+    padding: 10px 12px;
+    color: var(--color-dark-2);
+    background-color: var(--color-white);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    pointer-events: none;
+    transform: translate(12px, calc(-100% - 12px));
+}
+
+.dayTooltip strong {
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.dayTooltip span {
+    color: var(--color-gray-4);
+    font-size: 13px;
+    line-height: 1.2;
+}
+
+.level0 {
+    background-color: var(--color-gray-1);
+}
+
+.level1 {
+    background-color: #fef3c7;
+    border-color: #fde68a;
+}
+
+.level2 {
+    background-color: #bef264;
+    border-color: #a3e635;
+}
+
+.level3 {
+    background-color: #4ade80;
+    border-color: #22c55e;
+}
+
+.level4 {
+    background-color: #15803d;
+    border-color: #166534;
+}
+
+.statusText {
+    margin: 0;
+    color: var(--color-gray-4);
+    text-align: center;
+}
+
+.error {
+    margin: 0;
+    color: #b42318;
+    text-align: center;
+}
+
+@media (max-width: 640px) {
+    .calendarGrid {
+        min-width: 0;
+    }
+
+    .dayCell {
+        pointer-events: none;
+    }
+
+    .dayCell:hover,
+    .dayCell:focus {
+        border-color: var(--color-gray-2);
+    }
+
+    .summaryGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
