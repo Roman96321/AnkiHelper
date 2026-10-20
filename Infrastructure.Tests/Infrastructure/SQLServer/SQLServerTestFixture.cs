@@ -1,23 +1,24 @@
+using DotNet.Testcontainers.Builders;
 using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
-using Testcontainers.PostgreSql;
+using Testcontainers.MsSql;
 
-namespace Infrastructure.Tests.Infrastructure.Postgres;
+namespace Infrastructure.Tests.Infrastructure.SQLServer;
 
-public sealed class PostgresTestFixture : IAsyncLifetime
+public sealed class SQLServerTestFixture : IAsyncLifetime
 {
-    private PostgreSqlContainer? _container;
+    private MsSqlContainer? _container;
 
-    public string ConnectionString => _container?.GetConnectionString()
-        ?? throw new InvalidOperationException("PostgreSQL test container is not running.");
+    public string ConnectionString => _container is not null
+        ? $"{_container.GetConnectionString()};Database=ankihelper_tests;TrustServerCertificate=True;"
+        : throw new InvalidOperationException("SQL Server test container is not running.");
 
     public async Task InitializeAsync()
     {
-        _container = new PostgreSqlBuilder()
-            .WithImage("postgres:17-alpine")
-            .WithDatabase("ankihelper_tests")
-            .WithUsername("postgres")
-            .WithPassword("postgres")
+        _container = new MsSqlBuilder()
+            .WithPassword("StrongPassword123!")
+            .WithEnvironment("ACCEPT_EULA", "Y")
+            .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(1433))
             .Build();
 
         await _container.StartAsync();
@@ -33,7 +34,7 @@ public sealed class PostgresTestFixture : IAsyncLifetime
     public AppDbContext CreateDbContext()
     {
         var options = new DbContextOptionsBuilder<AppDbContext>()
-            .UseNpgsql(ConnectionString)
+            .UseSqlServer(ConnectionString)
             .Options;
 
         return new AppDbContext(options);

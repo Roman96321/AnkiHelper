@@ -1,7 +1,7 @@
 using Domain.Deck;
 using Domain.Users;
 
-namespace Infrastructure.Tests.Infrastructure.Postgres;
+namespace Infrastructure.Tests.Infrastructure.SQLServer;
 
 internal static class InfrastructureTestData
 {

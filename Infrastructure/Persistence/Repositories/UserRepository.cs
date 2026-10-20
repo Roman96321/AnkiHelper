@@ -2,7 +2,7 @@
 using Application.Abstractions.Auth;
 using Application.Exceptions;
 using Domain.Users;
-using Npgsql;
+using Microsoft.Data.SqlClient;
 using System;
 
 namespace Infrastructure.Persistence.Repositories
@@ -16,7 +16,7 @@ namespace Infrastructure.Persistence.Repositories
                 await dbContext.Users.AddAsync(user, token);
                 await dbContext.SaveChangesAsync(token);
             }
-            catch (DbUpdateException exception) when (exception.InnerException is PostgresException { SqlState: PostgresErrorCodes.UniqueViolation })
+            catch (DbUpdateException exception) when (exception.InnerException is SqlException { Number: 2627 or 2601 })
             {
                 throw new ConflictException("User with this email already exists");
             }

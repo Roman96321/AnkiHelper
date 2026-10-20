@@ -1,16 +1,16 @@
-using Infrastructure.Tests.Infrastructure.Postgres;
+using Infrastructure.Tests.Infrastructure.SQLServer;
 using Application.Exceptions;
 using Domain.Users;
 using FluentAssertions;
 using Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
-using static Infrastructure.Tests.Infrastructure.Postgres.InfrastructureTestData;
+using static Infrastructure.Tests.Infrastructure.SQLServer.InfrastructureTestData;
 
 namespace Infrastructure.Tests.Infrastructure.Repositories;
 
-[Collection(PostgresCollection.Name)]
+[Collection(SQLServerCollection.Name)]
 [Trait("Category", "Integration")]
-public sealed class UserRepositoryTests(PostgresTestFixture fixture) : IAsyncLifetime
+public sealed class UserRepositoryTests(SQLServerTestFixture fixture) : IAsyncLifetime
 {
     public async Task InitializeAsync()
     {

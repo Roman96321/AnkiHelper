@@ -1,17 +1,17 @@
-﻿using Infrastructure.Tests.Infrastructure.Postgres;
+﻿using Infrastructure.Tests.Infrastructure.SQLServer;
 using Application.Services.ConfiguredDecks;
 using Application.UseCases.Decks.Settings;
 using Domain.Deck;
 using FluentAssertions;
 using Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
-using static Infrastructure.Tests.Infrastructure.Postgres.InfrastructureTestData;
+using static Infrastructure.Tests.Infrastructure.SQLServer.InfrastructureTestData;
 
 namespace Infrastructure.Tests.Infrastructure.Repositories;
 
-[Collection(PostgresCollection.Name)]
+[Collection(SQLServerCollection.Name)]
 [Trait("Category", "Integration")]
-public sealed class DeckRepositoryTests(PostgresTestFixture fixture) : IAsyncLifetime
+public sealed class DeckRepositoryTests(SQLServerTestFixture fixture) : IAsyncLifetime
 {
     public async Task InitializeAsync()
     {

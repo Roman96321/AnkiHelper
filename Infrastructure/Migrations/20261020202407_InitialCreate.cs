@@ -1,13 +1,12 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace Infrastructure.Persistence.Migrations
+namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class Final : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,9 +15,9 @@ namespace Infrastructure.Persistence.Migrations
                 name: "daily_training_statistics",
                 columns: table => new
                 {
-                    UserId = table.Column<Guid>(type: "uuid", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Date = table.Column<DateOnly>(type: "date", nullable: false),
-                    LearningNoteCounts = table.Column<int>(type: "integer", nullable: false)
+                    LearningNoteCounts = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -29,9 +28,9 @@ namespace Infrastructure.Persistence.Migrations
                 name: "deck_import_settings",
                 columns: table => new
                 {
-                    UserId = table.Column<Guid>(type: "uuid", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DeckId = table.Column<long>(type: "bigint", nullable: false),
-                    DeckName = table.Column<string>(type: "character varying(248)", maxLength: 248, nullable: false)
+                    DeckName = table.Column<string>(type: "nvarchar(248)", maxLength: 248, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -42,13 +41,13 @@ namespace Infrastructure.Persistence.Migrations
                 name: "decks",
                 columns: table => new
                 {
-                    UserId = table.Column<Guid>(type: "uuid", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Id = table.Column<long>(type: "bigint", nullable: false),
-                    Name = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: false),
-                    FrontLanguage = table.Column<string>(type: "text", nullable: false),
-                    BackLanguage = table.Column<string>(type: "text", nullable: false),
-                    DeckDailyNewNotesCount = table.Column<int>(type: "integer", nullable: false),
-                    UseOnlyLearnedNotes = table.Column<bool>(type: "boolean", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
+                    FrontLanguage = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BackLanguage = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DeckDailyNewNotesCount = table.Column<int>(type: "int", nullable: false),
+                    UseOnlyLearnedNotes = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -59,10 +58,10 @@ namespace Infrastructure.Persistence.Migrations
                 name: "users",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Email = table.Column<string>(type: "character varying(320)", maxLength: 320, nullable: false),
-                    PasswordHash = table.Column<string>(type: "character varying(512)", maxLength: 512, nullable: false),
-                    CreatedAtUtc = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(320)", maxLength: 320, nullable: false),
+                    PasswordHash = table.Column<string>(type: "nvarchar(512)", maxLength: 512, nullable: false),
+                    CreatedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -73,18 +72,18 @@ namespace Infrastructure.Persistence.Migrations
                 name: "deck_import_field_mappings",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    UserId = table.Column<Guid>(type: "uuid", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DeckId = table.Column<long>(type: "bigint", nullable: false),
-                    FrontKey = table.Column<string>(type: "character varying(248)", maxLength: 248, nullable: false),
-                    BackKey = table.Column<string>(type: "character varying(248)", maxLength: 248, nullable: false)
+                    FrontKey = table.Column<string>(type: "nvarchar(248)", maxLength: 248, nullable: false),
+                    BackKey = table.Column<string>(type: "nvarchar(248)", maxLength: 248, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_deck_import_field_mappings", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_deck_import_field_mappings_deck_import_settings_UserId_Deck~",
+                        name: "FK_deck_import_field_mappings_deck_import_settings_UserId_DeckId",
                         columns: x => new { x.UserId, x.DeckId },
                         principalTable: "deck_import_settings",
                         principalColumns: new[] { "UserId", "DeckId" },
@@ -95,10 +94,10 @@ namespace Infrastructure.Persistence.Migrations
                 name: "daily_new_note_progress",
                 columns: table => new
                 {
-                    UserId = table.Column<Guid>(type: "uuid", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DeckId = table.Column<long>(type: "bigint", nullable: false),
                     Date = table.Column<DateOnly>(type: "date", nullable: false),
-                    NewAnsweredCount = table.Column<int>(type: "integer", nullable: false)
+                    NewAnsweredCount = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -115,13 +114,13 @@ namespace Infrastructure.Persistence.Migrations
                 name: "notes",
                 columns: table => new
                 {
-                    UserId = table.Column<Guid>(type: "uuid", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Id = table.Column<long>(type: "bigint", nullable: false),
                     DeckId = table.Column<long>(type: "bigint", nullable: false),
-                    Front = table.Column<string>(type: "text", nullable: false),
-                    Back = table.Column<string>(type: "text", nullable: false),
-                    IsLearned = table.Column<bool>(type: "boolean", nullable: false),
-                    LearningPoints = table.Column<int>(type: "integer", nullable: false),
+                    Front = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Back = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsLearned = table.Column<bool>(type: "bit", nullable: false),
+                    LearningPoints = table.Column<int>(type: "int", nullable: false),
                     NextReviewDate = table.Column<DateOnly>(type: "date", nullable: false)
                 },
                 constraints: table =>
@@ -139,12 +138,12 @@ namespace Infrastructure.Persistence.Migrations
                 name: "refresh_tokens",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    UserId = table.Column<Guid>(type: "uuid", nullable: false),
-                    TokenHash = table.Column<string>(type: "character varying(512)", maxLength: 512, nullable: false),
-                    ExpiresAtUtc = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    CreatedAtUtc = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    RevokedAtUtc = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TokenHash = table.Column<string>(type: "nvarchar(512)", maxLength: 512, nullable: false),
+                    ExpiresAtUtc = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    RevokedAtUtc = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
